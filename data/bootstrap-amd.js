@@ -14,7 +14,7 @@ const nlsConfig = bootstrap.setupNLS();
 
 // Bootstrap: Loader
 loader.config({
-	baseUrl: bootstrap.uriFromPath(__dirname),
+	baseUrl: bootstrap.fileUriFromPath(__dirname),
 	catchError: true,
 	nodeRequire: require,
 	nodeMain: __filename,
@@ -23,7 +23,6 @@ loader.config({
 		"monkey": "[[MONKEY_PATCH_ROOT]]",
 	}
 });
-
 
 // Running in Electron
 if (process.env['ELECTRON_RUN_AS_NODE'] || process.versions['electron']) {
