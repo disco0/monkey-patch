@@ -12,9 +12,14 @@ const bootstrap = require('./bootstrap');
 // Bootstrap: NLS
 const nlsConfig = bootstrap.setupNLS();
 
+// Bootstrap: Uri path method - Use Insiders v1.48.0 method if needed
+const uriFromPath = bootstrap.uriFromPath 
+                        ? bootstrap.uriFromPath
+                        : bootstrap.fileUriFromPath;
+
 // Bootstrap: Loader
 loader.config({
-	baseUrl: bootstrap.fileUriFromPath(__dirname),
+	baseUrl: uriFromPath(__dirname),
 	catchError: true,
 	nodeRequire: require,
 	nodeMain: __filename,
